@@ -1,0 +1,79 @@
+<header>
+	<nav class="desktop-nav">
+		<div class="nav-logo">
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+			<img
+        src="../../assets/images/logo.svg"
+        alt="logo"
+      >
+      <div class="nav-element">
+        <ul>
+          <li>Collections</li>
+          <li>Men</li>
+          <li>Woman</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+		</div>
+		
+		<div class="nav-cart" (click)="showHideCart()">
+			<img
+        src="../../assets/images/icon-cart.svg"
+        alt="cart"
+      >
+      <div class="product-counter" *ngIf="productList.length > 0">
+        {{productList[0].count}}
+      </div>
+      <div *ngIf="isCartSelected" class="cart-window">
+        <div class="cart-title">
+          <h4>Cart</h4>
+        </div>
+        <div class="cart-list">
+          <div *ngIf="productList.length > 0; else emptyList" class="cart-products">
+            <ul>
+              <li *ngFor="let product of productList; index as i">
+                <div class="product-img">
+                  <img
+                    src="{{product.thumbnails[0]}}"
+                    alt="Product image"
+                    width="40"
+                  >
+                </div>
+                <div class="product-info">
+                  <p>{{product.name}}</p>
+                  <p>${{(product.price * product.discount / 100).toFixed(2)}} x {{product.count}} <strong>${{((product.price * product.discount / 100) * product.count).toFixed(2)}}</strong></p>
+                </div>
+                <div class="delete-icon" (click)="delProduct(product.id)">
+                  <img
+                    src="../../assets/images/icon-delete.svg"
+                    alt="Delete icon"
+                  >
+                </div>
+              </li>
+            </ul>
+            <button class="checkout">
+              Checkout
+            </button>
+          </div>
+          <ng-template #emptyList>
+            <div class="no-products">
+              {{noProducts}}
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="avatar">
+        <img 
+          src="../../assets/images/image-avatar.png"
+          alt="avatar"
+          width="40"
+        >
+      </div>
+		</div>
+	</nav>
+</header>

@@ -1,0 +1,164 @@
+<div class="product-body">
+  <div class="img-slider">
+    <div class="lr-image" (click)="enableLightbox()">
+      <img
+        src="{{selectedImgUrl}}"
+        alt="large image"
+      >
+    </div>
+    <div class="image-list">
+      <div class="sm-image"
+        (click)="selected='first'; selectImg(product.images[0])"
+        [ngClass]="{'seleted-img': selected == 'first'}"
+      >
+        <img
+          src="{{product.thumbnails[0]}}"
+          alt="small image"
+        >
+      </div>
+      <div
+        class="sm-image"
+        (click)="selected='second'; selectImg(product.images[1])"
+        [ngClass]="{'seleted-img': selected == 'second'}"
+      >
+        <img
+          src="{{product.thumbnails[1]}}"
+          alt="small image"
+        >
+      </div>
+      <div
+        class="sm-image"
+        (click)="selected='third'; selectImg(product.images[2])"
+        [ngClass]="{'seleted-img': selected == 'third'}"
+      >
+        <img
+          src="{{product.thumbnails[2]}}"
+          alt="small image"
+        >
+      </div>
+      <div
+        class="sm-image"
+        (click)="selected='fourth'; selectImg(product.images[3])"
+        [ngClass]="{'seleted-img': selected == 'fourth'}"
+      >
+        <img
+          src="{{product.thumbnails[3]}}"
+          alt="small image"
+        >
+      </div>
+    </div>
+  </div>
+  <div class="img-info">
+    <div class="company-branch">
+      <h5>{{product.company}}</h5>
+    </div>
+    <div class="product-title">
+      <h1>{{product.name}}</h1>
+    </div>
+    <div class="product-text">
+      {{product.description}}
+    </div>
+    <div class="prices">
+      <div class="discount-price">
+        <h2>${{(product.price * product.discount / 100).toFixed(2)}}</h2>
+        <p>{{product.discount}}%</p>
+      </div>
+      <div class="real-price">
+        <h4>${{product.price.toFixed(2)}}</h4>
+      </div>
+    </div> 
+    <div class="cart-buttons">
+      <div class="add-sub">
+        <button class="minus" (click)="removeProduct()">
+          <img
+            src="../../assets/images/icon-minus.svg"
+            alt="icon minus"
+          >
+        </button>
+        <div class="counter">
+          <p>{{product.count}}</p>
+        </div>
+        <button class="plus" (click)="addProduct()">
+          <img
+            src="../../assets/images/icon-plus.svg"
+            alt="icon plus"
+          >
+        </button>
+      </div>
+      <div class="add-btn">
+        <button (click)="addtoKart()">
+          <img
+            src="../../assets/images/icon-cart-white.svg"
+            alt="cart"
+            width="17"
+          > Add to cart
+        </button>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLightbox" class="lightbox">
+  <div class="lb-container">
+    <div class="lb-close">
+      <img
+        src="../../assets/images/icon-close-white.svg"
+        alt="close"
+        (click)="disableLightbox()"
+        width="20"
+      >
+    </div>
+    <div class="lb-image">
+      <div class="image">
+        <div class="left-circle" (click)="prevImage()">
+          <img src="../../assets/images/icon-previous.svg" alt="previous">
+        </div>
+        <img
+          src="{{selectedLbImgUrl}}"
+          alt="large image"
+        >
+        <div class="right-circle" (click)="nextImage()">
+          <img src="../../assets/images/icon-next.svg" alt="next">
+        </div>
+      </div>
+    </div>
+    <div class="lb-thumbnails">
+      <div class="thumbnail"
+        (click)="selectedLb='first'; selectLbImg(product.images[0])"
+        [ngClass]="{'seleted-img': selectedLb == 'first'}"
+      >
+        <img
+          src="{{product.thumbnails[0]}}"
+          alt="thumbnail 1"
+        >
+      </div>
+      <div class="thumbnail"
+        (click)="selectedLb='second'; selectLbImg(product.images[1])"
+        [ngClass]="{'seleted-img': selectedLb == 'second'}"
+      >
+        <img
+          src="{{product.thumbnails[1]}}"
+          alt="thumbnail 2"
+        >
+      </div>
+      <div class="thumbnail"
+        (click)="selectedLb='third'; selectLbImg(product.images[2])"
+        [ngClass]="{'seleted-img': selectedLb == 'third'}"
+      >
+        <img
+          src="{{product.thumbnails[2]}}"
+          alt="thumbnail 3"
+        >
+      </div>
+      <div class="thumbnail"
+        (click)="selectedLb='fourth'; selectLbImg(product.images[3])"
+        [ngClass]="{'seleted-img': selectedLb == 'fourth'}"
+      >
+        <img
+          src="{{product.thumbnails[3]}}"
+          alt="thumbnail 4"
+        >
+      </div>
+    </div>
+  </div>
+</div>
