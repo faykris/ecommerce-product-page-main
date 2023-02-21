@@ -7,6 +7,7 @@ import { Product } from '../product.model';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  isMobile: boolean = false;
   @Input() productList:  Product[] = [];
   @Output() productListChange = new EventEmitter<Product[]>();
 
@@ -20,5 +21,9 @@ export class NavbarComponent {
   delProduct(id: number) {
     this.productList = this.productList.filter((product) => product.id !== id);
     this.productListChange.emit(this.productList)
+  }
+
+  enableDisableNavbar() {
+    this.isMobile = !this.isMobile;
   }
 }

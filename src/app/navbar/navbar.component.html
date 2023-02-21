@@ -1,6 +1,11 @@
 <header>
+  <div *ngIf="isMobile">
+    <app-m-navbar
+      [(isMobile)]="isMobile"
+    ></app-m-navbar>
+  </div>
 	<nav class="desktop-nav">
-		<div class="nav-logo">
+		<div class="nav-logo" (click)="enableDisableNavbar()">
       <div class="burger">
         <div class="line1"></div>
         <div class="line2"></div>
@@ -20,7 +25,7 @@
         </ul>
       </div>
 		</div>
-		
+
 		<div class="nav-cart" (click)="showHideCart()">
 			<img
         src="../../assets/images/icon-cart.svg"
@@ -68,7 +73,7 @@
         </div>
       </div>
       <div class="avatar">
-        <img 
+        <img
           src="../../assets/images/image-avatar.png"
           alt="avatar"
           width="40"
