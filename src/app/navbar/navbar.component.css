@@ -1,11 +1,7 @@
-.nav-cart {
-	position: center;
-}
-
 .product-counter {
 	position: absolute;
 	left: 12px;
-	top: 5px;
+	top: 10px;
 	color: var(--white);
 	background-color: var(--orange);
 	font-size: 10px;
@@ -91,3 +87,13 @@
 	align-items: center;
 }
 
+@media (max-width: 780px) {
+
+  .cart-window {
+    right: 2vw;
+  }
+
+  .product-counter {
+    top: 0;
+  }
+}
