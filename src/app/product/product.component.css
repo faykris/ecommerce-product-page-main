@@ -13,6 +13,7 @@
 .lr-image, .image-list {
 	display: flex;
 	justify-content: center;
+  cursor: pointer;
 }
 
 .sm-image {
