@@ -2,6 +2,9 @@
 
 ![Design preview for the E-commerce product page coding challenge](./design/desktop-preview.jpg)
 
+## URL Website
+- [Click here to open](https://sneakers-faykris.netlify.app/)
+
 ## Welcome! 👋
 
 Thanks for checking out this front-end coding challenge.
